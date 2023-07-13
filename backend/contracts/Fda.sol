@@ -2,11 +2,11 @@ pragma solidity ^0.6.0;
 
 contract Fda {
     address public admin;
-    address[] private approverList;
+    mapping(address => bool) private approverList;
     address[] public approvedDrugFormulationList;
     address[] public approvedApiList;
     mapping(address => uint256) apiPatentExpiryMapping;
-    address[] public approvedExcipientList;
+    mapping(address => string) approvedExcipientQuantityMapping;
 
     constructor() public {
         admin = msg.sender;
@@ -19,7 +19,10 @@ contract Fda {
         address indexed drugApiAddress,
         string rejectionReason
     );
-    event DrugExcipientApproved(address indexed drugExcipientAddress);
+    event DrugExcipientApproved(
+        address indexed drugExcipientAddress,
+        string quantityMg
+    );
     event DrugExcipientRejected(
         address indexed drugExcipientAddress,
         string rejectionReason
@@ -38,26 +41,15 @@ contract Fda {
     }
 
     modifier onlyApprover() {
-        bool isUserAnApprover = false;
-        for (uint256 index = 0; index < approverList.length; index++) {
-            if (msg.sender == approverList[index]) {
-                isUserAnApprover = true;
-                break;
-            }
-        }
-        require(isUserAnApprover, "Only an approver can do this");
+        require(approverList[msg.sender], "Only an approver can do this");
         _;
     }
 
     modifier noDuplicateApprover(address _approverAddress) {
-        bool isDuplicate = false;
-        for (uint256 index = 0; index < approverList.length; index++) {
-            if (approverList[index] == _approverAddress) {
-                isDuplicate = true;
-                break;
-            }
-        }
-        require(isDuplicate == false, "Cannot add a duplicate approver.");
+        require(
+            !approverList[_approverAddress],
+            "Cannot add a duplicate approver."
+        );
         _;
     }
 
@@ -68,17 +60,11 @@ contract Fda {
         onlyAdmin
         noDuplicateApprover(_approverAddress)
     {
-        approverList.push(_approverAddress);
+        approverList[_approverAddress] = true;
     }
 
     function removeApprover(address _approverAddress) public onlyAdmin {
-        for (uint256 index = 0; index < approverList.length; index++) {
-            if (approverList[index] == _approverAddress) {
-                approverList[index] = approverList[approverList.length - 1];
-                approverList.pop();
-                break;
-            }
-        }
+        approverList[_approverAddress] = false;
     }
 
     function changeAdmin(address _newAdminAddress) public onlyAdmin {
@@ -124,12 +110,13 @@ contract Fda {
         emit DrugAPIRejected(_drugApiAddress, _rejectionReason);
     }
 
-    function approveDrugExcipient(address _drugExcipientAddress)
-        public
-        onlyApprover
-    {
-        approvedExcipientList.push(_drugExcipientAddress);
-        emit DrugExcipientApproved(_drugExcipientAddress);
+    function approveDrugExcipient(
+        address _drugExcipientAddress,
+        string memory _quantityMg
+    ) public onlyApprover {
+        // TODO: Compare quantity before pushing (highest should be inserted)
+        approvedExcipientQuantityMapping[_drugExcipientAddress] = _quantityMg;
+        emit DrugExcipientApproved(_drugExcipientAddress, _quantityMg);
     }
 
     function rejectDrugExcipient(
@@ -168,13 +155,8 @@ contract Fda {
     function checkExcipientApproval(address _excipientAddress)
         public
         view
-        returns (bool)
+        returns (string memory)
     {
-        for (uint256 index = 0; index < approvedExcipientList.length; index++) {
-            if (_excipientAddress == approvedExcipientList[index]) {
-                return true;
-            }
-        }
-        return false;
+        return approvedExcipientQuantityMapping[_excipientAddress];
     }
 }

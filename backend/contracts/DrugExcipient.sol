@@ -14,6 +14,6 @@ contract DrugExcipient is ComponentBase {
     {}
 
     function isApproved() public view virtual override returns (bool) {
-        return fda.checkExcipientApproval(address(this));
+        return bytes(fda.checkExcipientApproval(address(this))).length != 0;
     }
 }

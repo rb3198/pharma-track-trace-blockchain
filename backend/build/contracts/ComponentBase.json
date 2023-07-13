@@ -118,7 +118,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fdaAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"uint16\",\"name\":\"_lowerTempBound\",\"type\":\"uint16\"},{\"internalType\":\"uint16\",\"name\":\"_upperTempBound\",\"type\":\"uint16\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"drugAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"clinicalDataIpfsHash\",\"type\":\"string\"}],\"name\":\"ClinicalTrialDataAdded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_clinicalDataIpfsHash\",\"type\":\"string\"}],\"name\":\"addClinicalData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clinicalDataIpfsHash\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isApproved\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"temperatureBounds\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ComponentBase.sol\":\"ComponentBase\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ComponentBase.sol\":{\"keccak256\":\"0x2d1f3c79245d079665697e8c7aeb3f871488025aa8acd7e4832ff8dfcb51dfdc\",\"urls\":[\"bzz-raw://bd9ecb665ae1371119e7b0229e7a711e23462c36d3d97199801ece53894e3740\",\"dweb:/ipfs/QmdvcdhbQEZy6LJpVWmkN5cWM9msUpJTLv5zaX3k1tg4YA\"]},\"project:/contracts/Fda.sol\":{\"keccak256\":\"0x81774c97a7c178e0d50c44057a976516fde807ffde661257390b9719bc5f74bf\",\"urls\":[\"bzz-raw://d90ccdb75f0666b899f159de8ab109d27f8021c0408cf342d195f8fb7e6900ad\",\"dweb:/ipfs/QmY2HTicxKBCuorwKd9Jg1xjzeZ2JHmH5fCqJjkwLP8e7x\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fdaAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"uint16\",\"name\":\"_lowerTempBound\",\"type\":\"uint16\"},{\"internalType\":\"uint16\",\"name\":\"_upperTempBound\",\"type\":\"uint16\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"drugAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"clinicalDataIpfsHash\",\"type\":\"string\"}],\"name\":\"ClinicalTrialDataAdded\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_clinicalDataIpfsHash\",\"type\":\"string\"}],\"name\":\"addClinicalData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clinicalDataIpfsHash\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isApproved\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"temperatureBounds\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ComponentBase.sol\":\"ComponentBase\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ComponentBase.sol\":{\"keccak256\":\"0x2d1f3c79245d079665697e8c7aeb3f871488025aa8acd7e4832ff8dfcb51dfdc\",\"urls\":[\"bzz-raw://bd9ecb665ae1371119e7b0229e7a711e23462c36d3d97199801ece53894e3740\",\"dweb:/ipfs/QmdvcdhbQEZy6LJpVWmkN5cWM9msUpJTLv5zaX3k1tg4YA\"]},\"project:/contracts/Fda.sol\":{\"keccak256\":\"0x23ab671285a4e6c99fc982d7abebfd2f1c7f6cee15ff1694bbb160d7f5e211b1\",\"urls\":[\"bzz-raw://99231229d96339f65fc48a550e6ea1cbce8f60f60e10b32255cbffed68937659\",\"dweb:/ipfs/Qmb34CSQ16YtKZMk2VvzVbVVp1NwU9BGMdnq2apiKxDkBH\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -152,7 +152,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 73,
-        "sourceUnit": 1097,
+        "sourceUnit": 1217,
         "src": "27:30:0",
         "symbolAliases": [
           {
@@ -199,7 +199,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Fda_$1096",
+              "typeIdentifier": "t_contract$_Fda_$1216",
               "typeString": "contract Fda"
             },
             "typeName": {
@@ -207,10 +207,10 @@
               "id": 4,
               "name": "Fda",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1096,
+              "referencedDeclaration": 1216,
               "src": "119:3:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Fda_$1096",
+                "typeIdentifier": "t_contract$_Fda_$1216",
                 "typeString": "contract Fda"
               }
             },
@@ -351,7 +351,7 @@
                       "referencedDeclaration": 5,
                       "src": "414:3:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Fda_$1096",
+                        "typeIdentifier": "t_contract$_Fda_$1216",
                         "typeString": "contract Fda"
                       }
                     },
@@ -385,10 +385,10 @@
                         "name": "Fda",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1096,
+                        "referencedDeclaration": 1216,
                         "src": "420:3:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Fda_$1096_$",
+                          "typeIdentifier": "t_type$_t_contract$_Fda_$1216_$",
                           "typeString": "type(contract Fda)"
                         }
                       },
@@ -403,13 +403,13 @@
                       "src": "420:16:0",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Fda_$1096",
+                        "typeIdentifier": "t_contract$_Fda_$1216",
                         "typeString": "contract Fda"
                       }
                     },
                     "src": "414:22:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Fda_$1096",
+                      "typeIdentifier": "t_contract$_Fda_$1216",
                       "typeString": "contract Fda"
                     }
                   },
@@ -814,7 +814,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1139,
+                            "referencedDeclaration": 1259,
                             "src": "858:4:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_ComponentBase_$72",
@@ -1072,7 +1072,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1097,
+          "SourceUnit": 1217,
           "absolutePath": "project:/contracts/Fda.sol",
           "file": "./Fda.sol",
           "scope": 73,
@@ -1137,7 +1137,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Fda",
-                  "referencedDeclaration": 1096,
+                  "referencedDeclaration": 1216,
                   "type": "contract Fda"
                 },
                 "id": 4,
@@ -1460,7 +1460,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1096,
+                                  "referencedDeclaration": 1216,
                                   "type": "type(contract Fda)",
                                   "value": "Fda"
                                 },
@@ -1923,7 +1923,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1139,
+                                  "referencedDeclaration": 1259,
                                   "type": "contract ComponentBase",
                                   "value": "this"
                                 },
@@ -2065,7 +2065,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-01-26T07:18:29.882Z",
+  "updatedAt": "2023-02-02T03:18:46.601Z",
   "devdoc": {
     "methods": {}
   },

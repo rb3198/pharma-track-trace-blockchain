@@ -30,7 +30,12 @@ contract DrugLot {
 
     constructor(address _fdaAddress, address _drugFormulationAddress) public {
         fda = Fda(_fdaAddress);
+        require(
+            fda.checkDrugFormulationApproval(_drugFormulationAddress),
+            "Require formulation of the drug to be approved before starting to manufacture it"
+        );
         drugFormulation = DrugFormulation(_drugFormulationAddress);
+        ownerId = msg.sender;
     }
 
     // modifiers
@@ -43,19 +48,26 @@ contract DrugLot {
     }
 
     modifier onlyManufacturer() {
-        require(authorizedManufacturers[msg.sender]);
+        require(
+            authorizedManufacturers[msg.sender],
+            "Only an authorized manufacturer can perform this action"
+        );
         _;
     }
 
     modifier onlyDistributor() {
-        require(authorizedDistributors[msg.sender]);
+        require(
+            authorizedDistributors[msg.sender],
+            "Only an authorized distributor can perform this action"
+        );
         _;
     }
 
     modifier manufacturerOrDistributor() {
         require(
             authorizedDistributors[msg.sender] ||
-                authorizedManufacturers[msg.sender]
+                authorizedManufacturers[msg.sender],
+            "Only an authorized manufacturer or distributor can perform this action"
         );
         _;
     }
@@ -63,13 +75,25 @@ contract DrugLot {
     modifier distributorOrPharmacy() {
         require(
             authorizedDistributors[msg.sender] ||
-                authorizedPharmacies[msg.sender]
+                authorizedPharmacies[msg.sender],
+            "Only an authorized distributor or pharmacy can perform this action"
         );
         _;
     }
 
     modifier onlyPharmacy() {
-        require(authorizedPharmacies[msg.sender]);
+        require(
+            authorizedPharmacies[msg.sender],
+            "Only an authorized pharmacy can perform this action"
+        );
+        _;
+    }
+
+    modifier onlyAfterManufacturing() {
+        require(
+            manufacturingStatus == ManufacturingStatus.COMPLETED,
+            "Manufacturing should be completed before lot can be sold or bought"
+        );
         _;
     }
 
@@ -81,10 +105,12 @@ contract DrugLot {
     );
     event lotManufactured(
         address indexed manufacturer,
+        string lotName,
         uint32 numBoxes,
         uint128 lotPrice,
         uint128 boxPrice,
-        uint256 manufacturingDate
+        uint256 manufacturingDate,
+        uint256 expiryDate
     );
     event lotOpenForSale(
         address indexed seller,
@@ -122,14 +148,11 @@ contract DrugLot {
             manufacturingStatus == ManufacturingStatus.UNSTARTED,
             "Manufacturing must not be started already"
         );
-        require(
-            fda.checkDrugFormulationApproval(address(drugFormulation)),
-            "Require formulation of the drug to be approved before starting to manufacture it"
-        );
         lotName = _lotName;
         numBoxes = _numBoxes;
         lotPrice = _lotPrice;
         boxPrice = _boxPrice;
+        manufacturingStatus = ManufacturingStatus.STARTED;
         emit lotManufacturingStarted(msg.sender, _lotName, _numBoxes);
     }
 
@@ -146,22 +169,30 @@ contract DrugLot {
         manufacturingStatus = ManufacturingStatus.COMPLETED;
         emit lotManufactured(
             msg.sender,
+            lotName,
             numBoxes,
             lotPrice,
             boxPrice,
-            _manufacturingDate
+            _manufacturingDate,
+            _expiryDate
         );
     }
 
-    function grantSale() public onlyOwner manufacturerOrDistributor {
-        require(
-            manufacturingStatus == ManufacturingStatus.COMPLETED,
-            "Lot must be manufactured before it can be sold"
-        );
+    function grantSale()
+        public
+        onlyOwner
+        manufacturerOrDistributor
+        onlyAfterManufacturing
+    {
         emit lotOpenForSale(ownerId, lotName, numBoxes, lotPrice, boxPrice);
     }
 
-    function buyLot() public payable distributorOrPharmacy {
+    function buyLot()
+        public
+        payable
+        distributorOrPharmacy
+        onlyAfterManufacturing
+    {
         address payable buyer = msg.sender;
         require(buyer != ownerId, "Owner cannot buy the lot himself");
         require(msg.value >= lotPrice, "Insufficient payment");
@@ -170,10 +201,15 @@ contract DrugLot {
             buyer.transfer(refundAmount);
         }
         ownerId.transfer(lotPrice);
+        ownerId = buyer;
         emit lotSold(buyer);
     }
 
-    function buyBox(uint32 _numBoxesToBuy) public payable {
+    function buyBox(uint32 _numBoxesToBuy)
+        public
+        payable
+        onlyAfterManufacturing
+    {
         address payable buyer = msg.sender;
         address payable seller = ownerId;
         require(

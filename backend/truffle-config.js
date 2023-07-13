@@ -63,6 +63,11 @@ module.exports = {
     // You should run a client (like ganache, geth, or parity) in a separate terminal
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
+    ganache: {
+      host: "localhost",
+      port: 7545,
+      network_id: "*", // Match any network id
+    },
     //
     // development: {
     //  host: "127.0.0.1",     // Localhost (default: none)
@@ -106,7 +111,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.17" // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.6.0", // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -115,8 +120,8 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
-  }
+    },
+  },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be

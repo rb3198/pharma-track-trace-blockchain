@@ -15,15 +15,21 @@ contract DrugFormulation is ComponentBase {
         public
         ComponentBase(_fdaAddress, _name, _lowerTempBound, _upperTempBound)
     {
-        arrayToMapping(_apiList, apiFormulaMapping);
-        arrayToMapping(_excipientList, excipientFormulaMapping);
+        require(_apiList.length != 0);
+        require(_excipientList.length != 0);
+        arrayToMapping(_apiList, "api", apiFormulaMapping);
+        arrayToMapping(_excipientList, "exci", excipientFormulaMapping);
     }
 
     function arrayToMapping(
         Formula[] memory arr,
+        string memory componentType,
         mapping(address => string) storage map
     ) private {
         for (uint256 index = 0; index < arr.length; index++) {
+            if (keccak256(bytes(componentType)) == keccak256(bytes("api"))) {
+                require(fda.checkApiApproval(arr[index].ingAddress));
+            }
             map[arr[index].ingAddress] = arr[index].quantityMg;
         }
     }
@@ -36,8 +42,8 @@ contract DrugFormulation is ComponentBase {
         string quantityMg;
     }
 
-    mapping(address => string) apiFormulaMapping;
-    mapping(address => string) excipientFormulaMapping;
+    mapping(address => string) public apiFormulaMapping;
+    mapping(address => string) public excipientFormulaMapping;
 
     // functions
     function isApproved() public view virtual override returns (bool) {

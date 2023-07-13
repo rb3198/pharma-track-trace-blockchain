@@ -71,14 +71,14 @@
     "absolutePath": "project:/contracts/IngredientLot.sol",
     "exportedSymbols": {
       "IngredientLot": [
-        1108
+        1228
       ]
     },
-    "id": 1109,
+    "id": 1229,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1098,
+        "id": 1218,
         "literals": [
           "solidity",
           "^",
@@ -95,9 +95,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1108,
+        "id": 1228,
         "linearizedBaseContracts": [
-          1108
+          1228
         ],
         "name": "IngredientLot",
         "nodeType": "ContractDefinition",
@@ -105,11 +105,11 @@
           {
             "constant": false,
             "functionSelector": "d7da832c",
-            "id": 1100,
+            "id": 1220,
             "name": "manufacturerId",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1108,
+            "scope": 1228,
             "src": "57:29:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -118,7 +118,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1099,
+              "id": 1219,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "57:7:6",
@@ -134,11 +134,11 @@
           {
             "constant": false,
             "functionSelector": "17fc45e2",
-            "id": 1102,
+            "id": 1222,
             "name": "quantity",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1108,
+            "scope": 1228,
             "src": "93:23:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -147,7 +147,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1101,
+              "id": 1221,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "93:7:6",
@@ -162,11 +162,11 @@
           {
             "constant": false,
             "functionSelector": "a035b1fe",
-            "id": 1104,
+            "id": 1224,
             "name": "price",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1108,
+            "scope": 1228,
             "src": "123:20:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -175,7 +175,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1103,
+              "id": 1223,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "123:7:6",
@@ -190,11 +190,11 @@
           {
             "constant": false,
             "functionSelector": "7938100b",
-            "id": 1107,
+            "id": 1227,
             "name": "temperatureListings",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1108,
+            "scope": 1228,
             "src": "150:35:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -204,7 +204,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 1105,
+                "id": 1225,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
                 "src": "150:6:6",
@@ -213,7 +213,7 @@
                   "typeString": "uint16"
                 }
               },
-              "id": 1106,
+              "id": 1226,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "150:8:6",
@@ -226,7 +226,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 1109,
+        "scope": 1229,
         "src": "27:162:6"
       }
     ],
@@ -237,7 +237,7 @@
       "absolutePath": "project:/contracts/IngredientLot.sol",
       "exportedSymbols": {
         "IngredientLot": [
-          1108
+          1228
         ]
       }
     },
@@ -251,7 +251,7 @@
             ".0"
           ]
         },
-        "id": 1098,
+        "id": 1218,
         "name": "PragmaDirective",
         "src": "0:23:6"
       },
@@ -268,10 +268,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1108
+            1228
           ],
           "name": "IngredientLot",
-          "scope": 1109
+          "scope": 1229
         },
         "children": [
           {
@@ -280,7 +280,7 @@
               "functionSelector": "d7da832c",
               "name": "manufacturerId",
               "overrides": null,
-              "scope": 1108,
+              "scope": 1228,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -294,12 +294,12 @@
                   "stateMutability": "nonpayable",
                   "type": "address"
                 },
-                "id": 1099,
+                "id": 1219,
                 "name": "ElementaryTypeName",
                 "src": "57:7:6"
               }
             ],
-            "id": 1100,
+            "id": 1220,
             "name": "VariableDeclaration",
             "src": "57:29:6"
           },
@@ -309,7 +309,7 @@
               "functionSelector": "17fc45e2",
               "name": "quantity",
               "overrides": null,
-              "scope": 1108,
+              "scope": 1228,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -322,12 +322,12 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 1101,
+                "id": 1221,
                 "name": "ElementaryTypeName",
                 "src": "93:7:6"
               }
             ],
-            "id": 1102,
+            "id": 1222,
             "name": "VariableDeclaration",
             "src": "93:23:6"
           },
@@ -337,7 +337,7 @@
               "functionSelector": "a035b1fe",
               "name": "price",
               "overrides": null,
-              "scope": 1108,
+              "scope": 1228,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -350,12 +350,12 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 1103,
+                "id": 1223,
                 "name": "ElementaryTypeName",
                 "src": "123:7:6"
               }
             ],
-            "id": 1104,
+            "id": 1224,
             "name": "VariableDeclaration",
             "src": "123:20:6"
           },
@@ -365,7 +365,7 @@
               "functionSelector": "7938100b",
               "name": "temperatureListings",
               "overrides": null,
-              "scope": 1108,
+              "scope": 1228,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint16[]",
@@ -384,27 +384,27 @@
                       "name": "uint16",
                       "type": "uint16"
                     },
-                    "id": 1105,
+                    "id": 1225,
                     "name": "ElementaryTypeName",
                     "src": "150:6:6"
                   }
                 ],
-                "id": 1106,
+                "id": 1226,
                 "name": "ArrayTypeName",
                 "src": "150:8:6"
               }
             ],
-            "id": 1107,
+            "id": 1227,
             "name": "VariableDeclaration",
             "src": "150:35:6"
           }
         ],
-        "id": 1108,
+        "id": 1228,
         "name": "ContractDefinition",
         "src": "27:162:6"
       }
     ],
-    "id": 1109,
+    "id": 1229,
     "name": "SourceUnit",
     "src": "0:191:6"
   },
@@ -414,7 +414,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-01-26T07:18:29.988Z",
+  "updatedAt": "2023-02-02T03:18:46.641Z",
   "devdoc": {
     "methods": {}
   },
