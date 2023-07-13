@@ -55,11 +55,9 @@ contract Fda {
 
     // Functions
 
-    function addApprover(address _approverAddress)
-        public
-        onlyAdmin
-        noDuplicateApprover(_approverAddress)
-    {
+    function addApprover(
+        address _approverAddress
+    ) public onlyAdmin noDuplicateApprover(_approverAddress) {
         approverList[_approverAddress] = true;
     }
 
@@ -71,10 +69,9 @@ contract Fda {
         admin = _newAdminAddress;
     }
 
-    function approveDrugFormulation(address _drugFormulationAddress)
-        public
-        onlyApprover
-    {
+    function approveDrugFormulation(
+        address _drugFormulationAddress
+    ) public onlyApprover {
         approvedDrugFormulationList.push(_drugFormulationAddress);
         emit DrugFormulationApproved(_drugFormulationAddress);
     }
@@ -86,20 +83,18 @@ contract Fda {
         emit DrugFormulationRejected(_drugFormulationAddress, _rejectionReason);
     }
 
-    function approveDrugApi(address _drugApiAddress, uint256 _patentExpiry)
-        public
-        onlyApprover
-    {
+    function approveDrugApi(
+        address _drugApiAddress,
+        uint256 _patentExpiry
+    ) public onlyApprover {
         approvedApiList.push(_drugApiAddress);
         apiPatentExpiryMapping[_drugApiAddress] = _patentExpiry;
         emit DrugAPIApproved(_drugApiAddress);
     }
 
-    function getApiPatentExpiry(address _drugApiAddress)
-        public
-        view
-        returns (uint256)
-    {
+    function getApiPatentExpiry(
+        address _drugApiAddress
+    ) public view returns (uint256) {
         return apiPatentExpiryMapping[_drugApiAddress];
     }
 
@@ -126,11 +121,9 @@ contract Fda {
         emit DrugExcipientRejected(_drugExcipientAddress, _rejectionReason);
     }
 
-    function checkDrugFormulationApproval(address _drugFormulationAddress)
-        public
-        view
-        returns (bool)
-    {
+    function checkDrugFormulationApproval(
+        address _drugFormulationAddress
+    ) public view returns (bool) {
         for (
             uint256 index = 0;
             index < approvedDrugFormulationList.length;
@@ -152,11 +145,9 @@ contract Fda {
         return false;
     }
 
-    function checkExcipientApproval(address _excipientAddress)
-        public
-        view
-        returns (string memory)
-    {
+    function checkExcipientApproval(
+        address _excipientAddress
+    ) public view returns (string memory) {
         return approvedExcipientQuantityMapping[_excipientAddress];
     }
 }

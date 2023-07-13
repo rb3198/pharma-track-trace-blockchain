@@ -205,11 +205,9 @@ contract DrugLot {
         emit lotSold(buyer);
     }
 
-    function buyBox(uint32 _numBoxesToBuy)
-        public
-        payable
-        onlyAfterManufacturing
-    {
+    function buyBox(
+        uint32 _numBoxesToBuy
+    ) public payable onlyAfterManufacturing {
         address payable buyer = msg.sender;
         address payable seller = ownerId;
         require(
